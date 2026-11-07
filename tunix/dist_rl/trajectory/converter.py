@@ -618,6 +618,7 @@ def create_trajectory_metadata(
   meta_extra = dict(getattr(request, "metadata", None) or {})
   if extra:
     meta_extra.update(extra)
+  meta_extra.pop("env_config", None)
 
   if isinstance(agent, trajectory_lib.Agent):
     agent_obj = agent
